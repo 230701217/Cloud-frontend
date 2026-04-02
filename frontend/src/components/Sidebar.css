@@ -1,0 +1,83 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1f2937, #111827);
+  color: #fff;
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Menu */
+.menu {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.menu-item:hover {
+  background: #374151;
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* Active */
+.menu-item.active {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+/* Icon */
+.icon {
+  font-size: 18px;
+}
+
+/* Text */
+.text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Collapsed Mode */
+.sidebar.collapsed .text {
+  display: none;
+}
+
+.sidebar.collapsed .menu-item {
+  justify-content: center;
+}
