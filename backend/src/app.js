@@ -8,12 +8,13 @@ import orderRoutes from "./routes/orderRoutes.js";
 const app = express();
 
 // Middleware
-const allowedOrigins = process.env.FRONTEND_URL
-  ? [process.env.FRONTEND_URL, "http://localhost:3000"]
-  : "*";
+// Middleware
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      // Allow any origin dynamically (handles Azure frontend subdomains like .2., .3. etc)
+      callback(null, true);
+    },
     credentials: true,
   })
 );
