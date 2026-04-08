@@ -52,7 +52,10 @@ export const placeOrder = async (req, res) => {
 export const getMyOrders = async (req, res) => {
   try {
     const userId = req.user?.id || req.user?._id;
-    const orders = await Order.find({ user: userId }).sort({ createdAt: -1 });
+    const orders = await Order.find({ user: userId });
+    
+    // Sort in memory to avoid Cosmos DB indexing limitation
+    orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     res.status(200).json(orders);
   } catch (error) {

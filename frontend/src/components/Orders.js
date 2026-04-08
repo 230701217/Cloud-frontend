@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { getMyOrders } from "../services/api";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -11,18 +11,9 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const token = localStorage.getItem("token");
+      const { data } = await getMyOrders();
 
-      const res = await axios.get(
-        "http://localhost:5000/api/orders/my-orders",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      setOrders(res.data);
+      setOrders(data);
     } catch (err) {
       console.error("Error fetching orders:", err);
     } finally {
@@ -42,7 +33,7 @@ const Orders = () => {
         <div style={styles.grid}>
           {orders.map((order) => (
             <div key={order._id} style={styles.card}>
-              
+
               {/* Header */}
               <div style={styles.header}>
                 <h3>Order #{order._id.slice(-5)}</h3>
