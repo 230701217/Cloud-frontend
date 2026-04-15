@@ -1,0 +1,11 @@
+﻿commit a500a64035b9c715abc6522023ada3d9e1b0c8bc
+Author: NITHIN KUMAR <230701217@rajalakshmi.edu.in>
+Date:   Wed Apr 15 14:21:24 2026 +0530
+
+    changed
+
+ Cloud-frontend                    |   1 +
+ backend/err.log                   |   2 +
+ backend/testCosmos.js             |  23 ++++
+ frontend/src/components/Orders.js | 274 ++++++++++++++++++++++++++++++++++++--
+ 4 files changed, 287 insertions(+), 13 deletions(-)
