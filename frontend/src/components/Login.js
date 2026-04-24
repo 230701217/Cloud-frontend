@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import { login } from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
-import styles from "./ProductForm.module.css";
-
+import styles from "./Auth.module.css";
 const Login = () => {
   const [form, setForm] = useState({
     email: "",
@@ -41,7 +40,8 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
       <h2>Login</h2>
 
       <div className={styles.inputGroup}>
@@ -68,10 +68,11 @@ const Login = () => {
         <button type="submit">Login</button>
       </div>
 
-      <p style={{ textAlign: "center", marginTop: "10px" }}>
+      <p className={styles.linkText}>
         Don’t have an account? <Link to="/signup">Signup</Link>
       </p>
-    </form>
+      </form>
+    </div>
   );
 };
 

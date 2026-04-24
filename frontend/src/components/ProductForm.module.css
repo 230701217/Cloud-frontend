@@ -1,58 +1,70 @@
 .form {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  max-width: 420px;
-  margin: 0 auto;
-  transition: box-shadow 0.2s ease;
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  max-width: 500px;
+  margin: 0 auto 40px auto;
+  transition: box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease;
 }
 
-.form:hover {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .form h2 {
-  margin-bottom: 20px;
-  color: #1f2937;
-  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: white;
+  font-size: 24px;
   text-align: center;
+  font-weight: 600;
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .inputGroup input {
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 16px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .inputGroup input:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 2px rgba(79,70,229,0.2);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .buttonGroup {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 15px;
+  gap: 15px;
+  margin-top: 25px;
 }
 
 .buttonGroup button {
-  padding: 10px 22px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
   border: none;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  font-size: 16px;
+  transition: all 0.2s ease;
 }
 
 .buttonGroup button:hover {
@@ -60,15 +72,21 @@
 }
 
 .buttonGroup button[type="submit"] {
-  background-color: #4f46e5;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.buttonGroup button[type="submit"]:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
 }
 
 .buttonGroup .cancel {
-  background-color: #ef4444;
-  color: white;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
 }
 
 .buttonGroup .cancel:hover {
-  background-color: #b91c1c;
+  background: var(--danger);
+  color: white;
 }
