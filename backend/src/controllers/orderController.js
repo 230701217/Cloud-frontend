@@ -1,5 +1,6 @@
 import Order from "../models/Order.js";
 import User from "../models/user.js";
+import Product from "../models/Product.js";
 
 export const placeOrder = async (req, res) => {
   try {
@@ -34,6 +35,14 @@ export const placeOrder = async (req, res) => {
       items: orderItems,
       totalAmount,
     });
+
+    // Update product stock
+    for (const item of orderItems) {
+      await Product.findByIdAndUpdate(
+        item.product,
+        { $inc: { quantity: -item.quantity } }
+      );
+    }
 
     user.cart = [];
     await user.save();
